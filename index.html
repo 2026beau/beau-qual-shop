@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beau قال — Boutique de Cadeaux Personnalisés</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #f2a7bb;
+  --rose-deep: #d4607e;
+  --rose-light: #fce8ef;
+  --violet: #9b6fa0;
+  --violet-deep: #6b3f7a;
+  --violet-light: #f0e8f8;
+  --gold: #c9953a;
+  --gold-light: #f7e8c8;
+  --cream: #fdf7f0;
+  --dark: #2c1a2e;
+  --gray: #888;
+  --white: #ffffff;
+  --success: #4caf7d;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:'Tajawal',sans-serif; background:var(--cream); color:var(--dark); overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:rgba(253,247,240,0.92); backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(212,96,126,0.12);
+  padding:14px 30px; display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700;
+  background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-decoration:none; }
+.cart-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep));
+  color:white; padding:9px 20px; border-radius:50px;
+  font-size:0.9rem; font-weight:600; border:none; cursor:pointer;
+  font-family:'Tajawal',sans-serif; box-shadow:0 4px 20px rgba(107,63,122,0.25); transition:all 0.3s;
+}
+.cart-btn:hover { transform:translateY(-2px); }
+.cart-count { background:var(--rose); color:white; width:20px; height:20px; border-radius:50%; font-size:0.75rem; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+
+/* HERO */
+.hero {
+  min-height:100vh; padding:120px 20px 80px;
+  background:linear-gradient(160deg,#fdf0f5 0%,#f7eeff 45%,#fff5e0 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; position:relative; overflow:hidden;
+}
+.blob { position:absolute; border-radius:50%; filter:blur(60px); opacity:0.3; animation:bfloat 10s ease-in-out infinite; }
+.blob1 { width:500px; height:500px; background:radial-gradient(var(--rose),transparent); top:-100px; right:-100px; }
+.blob2 { width:400px; height:400px; background:radial-gradient(var(--violet),transparent); bottom:-80px; left:-80px; animation-delay:-5s; }
+@keyframes bfloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-25px);} }
+.fl { position:absolute; font-size:1.8rem; opacity:0.1; z-index:1; animation:fd 8s ease-in-out infinite; }
+.fl:nth-child(3){top:18%;left:6%;}
+.fl:nth-child(4){top:22%;right:8%;animation-delay:1s;}
+.fl:nth-child(5){bottom:28%;left:10%;animation-delay:2s;}
+.fl:nth-child(6){bottom:20%;right:7%;animation-delay:0.5s;}
+.fl:nth-child(7){top:55%;left:4%;animation-delay:3s;}
+@keyframes fd{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-18px) rotate(12deg);}}
+.hero-logo { position:relative; z-index:2; margin-bottom:20px; animation:fadeDown 1s ease both; }
+.logo-beau { font-family:'Playfair Display',serif; font-size:clamp(3rem,9vw,6rem); font-weight:700; line-height:0.9;
+  background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep),var(--gold));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.logo-qal { font-family:'Tajawal',sans-serif; font-size:clamp(2rem,6vw,4rem); font-weight:700;
+  background:linear-gradient(135deg,var(--gold),var(--rose-deep));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-sub { position:relative; z-index:2; margin-bottom:28px; animation:fadeUp 1s ease 0.3s both; }
+.hero-sub p { font-family:'Dancing Script',cursive; font-size:clamp(1.1rem,3vw,1.6rem); color:var(--violet); margin-bottom:5px; }
+.hero-sub .ar { font-family:'Tajawal',sans-serif; font-size:clamp(1rem,2.5vw,1.3rem); color:var(--rose-deep); direction:rtl; font-weight:500; }
+.pills { display:flex; gap:9px; flex-wrap:wrap; justify-content:center; margin-bottom:32px; position:relative; z-index:2; animation:fadeUp 1s ease 0.5s both; }
+.pill { background:white; border:1.5px solid var(--rose); padding:7px 16px; border-radius:50px; font-size:0.82rem; color:var(--violet-deep); font-weight:600; box-shadow:0 3px 12px rgba(212,96,126,0.1); }
+.btn-main { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep)); color:white; padding:16px 44px; border-radius:50px; font-size:1.1rem; font-weight:700; text-decoration:none; font-family:'Tajawal',sans-serif; box-shadow:0 12px 40px rgba(107,63,122,0.35); transition:all 0.3s; position:relative; z-index:2; animation:fadeUp 1s ease 0.7s both; }
+.btn-main:hover { transform:translateY(-4px); box-shadow:0 18px 50px rgba(107,63,122,0.45); }
+
+/* SECTION */
+.sec { padding:80px 20px; }
+.sec-inner { max-width:1100px; margin:0 auto; }
+.sec-alt { background:linear-gradient(135deg,#fdf0f8,#f0e8ff); }
+.sec-title { text-align:center; margin-bottom:50px; }
+.sec-title h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.6rem); color:var(--violet-deep); margin-bottom:8px; }
+.sec-title .ar { font-family:'Tajawal',sans-serif; font-size:clamp(1rem,2.5vw,1.3rem); color:var(--rose-deep); direction:rtl; display:block; font-weight:500; margin-bottom:12px; }
+.divider { width:55px; height:3px; background:linear-gradient(90deg,var(--rose),var(--violet)); margin:0 auto; border-radius:2px; }
+
+/* PRODUCTS */
+.pgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:26px; }
+.pcard { background:white; border-radius:24px; overflow:hidden; box-shadow:0 6px 30px rgba(107,63,122,0.09); transition:all 0.4s cubic-bezier(.175,.885,.32,1.275); border:2px solid transparent; }
+.pcard:hover { transform:translateY(-10px); box-shadow:0 20px 60px rgba(107,63,122,0.18); border-color:var(--rose); }
+.pcard-img { height:180px; display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative; overflow:hidden; }
+.pcard-bg { position:absolute; inset:0; }
+.pcard-body { padding:22px; }
+.ptag { display:inline-block; padding:4px 12px; border-radius:20px; font-size:0.74rem; font-weight:700; margin-bottom:10px; }
+.t-bocal { background:#f0e8ff; color:#7a4fa0; }
+.t-lettre { background:#fff0e0; color:#c07020; }
+.t-thermo { background:#e0f0ff; color:#2060a0; }
+.t-box { background:linear-gradient(135deg,#ffe8f0,#f0e0ff); color:#8a3060; }
+.pname { font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--dark); margin-bottom:4px; }
+.pname-ar { font-family:'Tajawal',sans-serif; font-size:0.92rem; color:var(--violet); direction:rtl; margin-bottom:8px; font-weight:500; }
+.pdesc { font-size:0.83rem; color:var(--gray); line-height:1.55; margin-bottom:16px; }
+.pfoot { display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid #f0e8f5; }
+.pprice { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--violet-deep); }
+.pprice sup { font-size:0.7rem; font-weight:400; color:var(--gray); font-family:'Tajawal',sans-serif; }
+.add-btn { display:inline-flex; align-items:center; gap:5px; background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep)); color:white; padding:9px 18px; border-radius:50px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer; transition:all 0.3s; font-family:'Tajawal',sans-serif; }
+.add-btn:hover { transform:scale(1.07); }
+.add-btn.added { background:linear-gradient(135deg,var(--success),#2d8a5e); }
+
+/* CART */
+.cart-overlay { position:fixed; inset:0; background:rgba(30,10,40,0.5); z-index:800; opacity:0; pointer-events:none; transition:opacity 0.3s; backdrop-filter:blur(4px); }
+.cart-overlay.open { opacity:1; pointer-events:all; }
+.cart-sidebar { position:fixed; top:0; right:-420px; width:420px; max-width:95vw; height:100vh; background:white; z-index:900; box-shadow:-10px 0 60px rgba(107,63,122,0.2); transition:right 0.4s cubic-bezier(.175,.885,.32,1.275); display:flex; flex-direction:column; }
+.cart-sidebar.open { right:0; }
+.cart-head { padding:24px; border-bottom:1px solid #f0e8f5; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+.cart-head h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--violet-deep); }
+.cart-x { width:36px; height:36px; background:var(--violet-light); border:none; border-radius:50%; cursor:pointer; font-size:1rem; color:var(--violet-deep); transition:all 0.2s; }
+.cart-x:hover { background:var(--rose-light); }
+.cart-list { flex:1; padding:20px; overflow-y:auto; }
+.cart-empty { text-align:center; padding:60px 20px; color:var(--gray); }
+.cart-empty .e-icon { font-size:3rem; margin-bottom:12px; opacity:0.4; }
+.citem { display:flex; align-items:center; gap:14px; padding:14px; background:var(--cream); border-radius:16px; margin-bottom:12px; border:1px solid rgba(242,167,187,0.2); }
+.citem-em { font-size:2rem; width:50px; height:50px; display:flex; align-items:center; justify-content:center; background:white; border-radius:12px; flex-shrink:0; }
+.citem-info { flex:1; }
+.citem-name { font-weight:700; font-size:0.9rem; color:var(--dark); margin-bottom:3px; }
+.citem-price { font-family:'Playfair Display',serif; font-weight:700; color:var(--violet-deep); font-size:0.95rem; }
+.citem-rm { background:none; border:none; color:var(--gray); cursor:pointer; font-size:1.1rem; padding:4px; border-radius:6px; transition:all 0.2s; }
+.citem-rm:hover { background:var(--rose-light); color:var(--rose-deep); }
+.cart-foot { padding:20px; border-top:1px solid #f0e8f5; flex-shrink:0; }
+.cart-total-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.cart-total-row span { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--dark); }
+.cart-total-row strong { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--violet-deep); }
+.cart-go { width:100%; padding:15px; background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep)); color:white; border:none; border-radius:50px; font-size:1rem; font-weight:700; cursor:pointer; font-family:'Tajawal',sans-serif; transition:all 0.3s; box-shadow:0 8px 30px rgba(107,63,122,0.3); }
+.cart-go:hover { transform:translateY(-2px); }
+
+/* MODAL */
+.m-overlay { position:fixed; inset:0; background:rgba(30,10,40,0.6); z-index:1000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.3s; padding:20px; backdrop-filter:blur(6px); }
+.m-overlay.open { opacity:1; pointer-events:all; }
+.modal { background:white; border-radius:28px; width:100%; max-width:540px; max-height:90vh; overflow-y:auto; box-shadow:0 30px 80px rgba(107,63,122,0.3); transform:scale(0.9); transition:transform 0.3s; }
+.m-overlay.open .modal { transform:scale(1); }
+.m-head { padding:28px 28px 20px; position:sticky; top:0; background:white; border-bottom:1px solid #f0e8f5; z-index:10; }
+.m-head h3 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--violet-deep); margin-bottom:4px; }
+.m-head .ar { font-family:'Tajawal',sans-serif; direction:rtl; color:var(--rose-deep); font-size:0.95rem; }
+.m-x { position:absolute; top:20px; right:20px; background:var(--violet-light); border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1rem; color:var(--violet-deep); transition:all 0.2s; }
+.m-x:hover { background:var(--rose-light); }
+.m-body { padding:24px 28px; }
+
+.order-sum { background:var(--cream); border-radius:16px; padding:16px; margin-bottom:24px; border:1px solid rgba(212,96,126,0.15); }
+.order-sum-ttl { font-weight:700; color:var(--violet-deep); margin-bottom:10px; font-size:0.9rem; }
+.order-sum-row { display:flex; justify-content:space-between; font-size:0.88rem; color:var(--dark); padding:4px 0; border-bottom:1px dashed #e8d8f0; }
+.order-sum-row:last-of-type { border-bottom:none; }
+.order-sum-total { display:flex; justify-content:space-between; margin-top:10px; padding-top:10px; border-top:2px solid var(--rose); }
+.order-sum-total span { font-family:'Playfair Display',serif; font-weight:700; color:var(--violet-deep); font-size:1.1rem; }
+
+.fg { margin-bottom:18px; }
+.flbl { display:block; font-weight:700; font-size:0.88rem; color:var(--dark); margin-bottom:6px; }
+.flbl .ar { font-family:'Tajawal',sans-serif; direction:rtl; display:block; color:var(--violet); font-size:0.82rem; font-weight:500; }
+.finput, .fselect, .ftextarea { width:100%; padding:12px 16px; border:2px solid #e8d8f5; border-radius:14px; font-size:0.95rem; font-family:'Tajawal',sans-serif; color:var(--dark); background:white; transition:border-color 0.3s; outline:none; }
+.finput:focus, .fselect:focus, .ftextarea:focus { border-color:var(--violet); }
+.ftextarea { resize:vertical; min-height:90px; }
+.frow { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.theme-sel { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.topt { padding:10px 8px; border:2px solid #e8d8f5; border-radius:12px; cursor:pointer; text-align:center; font-size:0.78rem; font-weight:600; transition:all 0.2s; color:var(--dark); }
+.topt:hover { border-color:var(--rose); }
+.topt.active { border-color:var(--violet-deep); background:var(--violet-light); color:var(--violet-deep); }
+.topt .te { font-size:1.3rem; display:block; margin-bottom:3px; }
+
+.sub-btn { width:100%; padding:16px; background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep)); color:white; border:none; border-radius:50px; font-size:1.05rem; font-weight:700; cursor:pointer; font-family:'Tajawal',sans-serif; transition:all 0.3s; margin-top:8px; box-shadow:0 8px 30px rgba(107,63,122,0.3); }
+.sub-btn:hover { transform:translateY(-2px); }
+
+/* SUCCESS */
+.success { display:none; padding:50px 28px; text-align:center; }
+.sicon { font-size:4rem; margin-bottom:16px; animation:pop 0.5s cubic-bezier(.175,.885,.32,1.275) both; }
+@keyframes pop { from{transform:scale(0);}to{transform:scale(1);} }
+.success h3 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--violet-deep); margin-bottom:8px; }
+.success .ar { font-family:'Tajawal',sans-serif; direction:rtl; color:var(--rose-deep); margin-bottom:16px; display:block; }
+.success p { color:var(--gray); font-size:0.92rem; line-height:1.6; margin-bottom:24px; }
+.slink { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:white; padding:13px 32px; border-radius:50px; font-size:0.95rem; font-weight:700; text-decoration:none; font-family:'Tajawal',sans-serif; transition:all 0.3s; }
+.slink:hover { transform:scale(1.05); }
+
+/* STEPS */
+.sgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:22px; }
+.scard { background:white; border-radius:20px; padding:28px 20px; text-align:center; box-shadow:0 5px 25px rgba(107,63,122,0.07); transition:transform 0.3s; }
+.scard:hover { transform:translateY(-5px); }
+.snum { width:38px; height:38px; background:linear-gradient(135deg,var(--violet-deep),var(--rose-deep)); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin:0 auto 12px; }
+.scard .si { font-size:2.2rem; margin-bottom:10px; display:block; }
+.scard h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--violet-deep); margin-bottom:5px; }
+.scard .ar { font-family:'Tajawal',sans-serif; direction:rtl; font-size:0.82rem; color:var(--rose-deep); display:block; margin-bottom:5px; }
+.scard p { font-size:0.82rem; color:var(--gray); line-height:1.5; }
+
+/* FOOTER */
+footer { background:var(--dark); color:white; padding:50px 20px 30px; text-align:center; }
+.flogo { font-family:'Playfair Display',serif; font-size:2.5rem; background:linear-gradient(135deg,var(--rose),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; }
+.ftag { font-family:'Dancing Script',cursive; font-size:1.1rem; color:rgba(255,255,255,0.5); margin-bottom:24px; }
+.fig a { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:white; padding:11px 28px; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.9rem; font-family:'Tajawal',sans-serif; transition:transform 0.3s; margin-bottom:24px; }
+.fig a:hover { transform:scale(1.05); }
+footer small { font-size:0.78rem; color:rgba(255,255,255,0.3); }
+
+/* ANIM */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(35px);transition:all 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:600px){
+  .pgrid{grid-template-columns:1fr;}
+  .sgrid{grid-template-columns:1fr 1fr;}
+  .frow{grid-template-columns:1fr;}
+  nav{padding:12px 16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Beau قال</a>
+  <button class="cart-btn" onclick="toggleCart()">🛒 Panier <span class="cart-count" id="cartCount">0</span></button>
+</nav>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h3>🛒 Mon Panier</h3>
+    <button class="cart-x" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-list" id="cartList">
+    <div class="cart-empty"><div class="e-icon">🛍️</div><p>Votre panier est vide</p><p style="font-size:0.8rem;margin-top:6px;direction:rtl">سلّتك فارغة</p></div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Total</span><strong id="cartTotal">0 DA</strong></div>
+    <button class="cart-go" onclick="openModal()">✨ Passer la commande — اطلب الآن</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <span class="fl">🌸</span><span class="fl">✨</span><span class="fl">💜</span><span class="fl">🌙</span><span class="fl">💌</span>
+  <div class="hero-logo">
+    <div class="logo-beau">Beau</div>
+    <div class="logo-qal">قال</div>
+  </div>
+  <div class="hero-sub">
+    <p>Cadeaux personnalisés qui touchent le cœur 💌</p>
+    <p class="ar">هدايا مخصصة تُسعد القلوب ✨</p>
+  </div>
+  <div class="pills">
+    <span class="pill">🎁 100% Personnalisé</span>
+    <span class="pill">✍️ Fait à la main</span>
+    <span class="pill">🇩🇿 Livraison Algérie</span>
+    <span class="pill">💜 Unique & Émouvant</span>
+  </div>
+  <a href="#catalogue" class="btn-main">✨ Voir nos produits</a>
+</section>
+
+<section class="sec" id="catalogue">
+  <div class="sec-inner">
+    <div class="sec-title reveal">
+      <h2>Notre Catalogue 🎁</h2>
+      <span class="ar">كتالوج هداياتنا 🎁</span>
+      <div class="divider"></div>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="how">
+  <div class="sec-inner">
+    <div class="sec-title reveal">
+      <h2>Comment Commander ? 📦</h2>
+      <span class="ar">كيف تطلب ؟ 📦</span>
+      <div class="divider"></div>
+    </div>
+    <div class="sgrid">
+      <div class="scard reveal"><span class="si">🛒</span><div class="snum">1</div><h4>Choisissez</h4><span class="ar">اختر منتجك</span><p>Sélectionnez vos articles et ajoutez au panier</p></div>
+      <div class="scard reveal"><span class="si">✍️</span><div class="snum">2</div><h4>Personnalisez</h4><span class="ar">خصّص هديتك</span><p>Prénom, thème, langue, message spécial</p></div>
+      <div class="scard reveal"><span class="si">📸</span><div class="snum">3</div><h4>Confirmez</h4><span class="ar">أكّد طلبك</span><p>On vous contacte sur Instagram pour confirmer</p></div>
+      <div class="scard reveal"><span class="si">🚚</span><div class="snum">4</div><h4>Livraison</h4><span class="ar">التوصيل في كل الجزائر</span><p>Livraison partout en Algérie 🇩🇿</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Beau قال</div>
+  <div class="ftag">Chaque mot compte. كل كلمة تُفرق.</div>
+  <div class="fig"><a href="https://instagram.com/beau.qal" target="_blank">📸 @beau.qal — Suivez-nous</a></div>
+  <small>🇩🇿 Fait avec amour en Algérie • بُنِي بحبٍّ في الجزائر 💜</small>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="m-overlay" id="mOverlay">
+  <div class="modal" id="modal">
+    <div class="m-head">
+      <h3>✨ Finaliser ma commande</h3>
+      <p class="ar">أكمل طلبك 🎁</p>
+      <button class="m-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="m-body" id="mBody"></div>
+    <div class="success" id="successDiv">
+      <div class="sicon">🎉</div>
+      <h3>Commande envoyée !</h3>
+      <span class="ar">تم إرسال طلبك بنجاح ✨</span>
+      <p>Nous allons vous contacter sur Instagram pour confirmer et organiser la livraison.<br><br>سنتواصل معك على إنستغرام لتأكيد طلبك 💜</p>
+      <a href="https://instagram.com/beau.qal" target="_blank" class="slink">📸 @beau.qal</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = [
+  { id:'bocal-motivation', em:'💜🏆', bg:'linear-gradient(135deg,#f0e0ff,#dfc8f8)', tag:'t-bocal', tl:'🫙 Bocal', name:'Bocal Motivation', ar:'بوكال التحفيز 💜', desc:'366 citations inspirantes pour motiver chaque matin. Français ou anglais, personnalisé à son prénom.', price:3500 },
+  { id:'bocal-amour', em:'💙🦋', bg:'linear-gradient(135deg,#e0f0ff,#c8e0f8)', tag:'t-bocal', tl:'🫙 Bocal', name:'Bocal Amour', ar:'بوكال الحب 💙', desc:'365 messages d\'amour personnalisés. Papillons, cœurs, mots tendres. Français ou anglais.', price:3500 },
+  { id:'bocal-doua', em:'🤲💙', bg:'linear-gradient(135deg,#1a2a6c,#2a4a8c)', tag:'t-bocal', tl:'🫙 بوكال', name:'Bocal أدعية', ar:'بوكال الأدعية اليومية 🤲', desc:'365 أدعية مباركة باللغة العربية. هدية روحانية رائعة لمن تحب.', price:3500 },
+  { id:'bocal-melange', em:'✨🌈', bg:'linear-gradient(135deg,#fff0e8,#f8e0ff)', tag:'t-bocal', tl:'🫙 Mélange', name:'Bocal Mélange ✨', ar:'بوكال المزيج الخاص ✨', desc:'Amour + motivation + doua — un mélange unique personnalisé selon vos souhaits.', price:3500 },
+  { id:'lettre', em:'📜✍️', bg:'linear-gradient(135deg,#fff5e0,#f8e8c0)', tag:'t-lettre', tl:'📜 Lettre', name:'Lettre Vintage Personnalisée', ar:'رسالة كلاسيكية مخصصة ✍️', desc:'Belle lettre personnalisée style vintage avec votre message. Papier premium.', price:500 },
+  { id:'thermo', em:'☕🎨', bg:'linear-gradient(135deg,#e0f5ff,#c8eaf8)', tag:'t-thermo', tl:'☕ Thermo', name:'Thermo Shop Personnalisée', ar:'كوب حراري مخصص ☕', desc:'Tasse thermique avec design et prénom personnalisés. Idéal pour les amateurs de café.', price:2200 },
+  { id:'box-bl', em:'🎁💌', bg:'linear-gradient(135deg,#ffe8f5,#f0e0ff)', tag:'t-box', tl:'🎁 Box', name:'Box Bocal + Lettre', ar:'بوكس بوكال + رسالة 🎁', desc:'Bocal 365 messages + Lettre vintage personnalisée. Un duo parfait et émouvant.', price:5000 },
+  { id:'box-blc', em:'🎁🍫', bg:'linear-gradient(135deg,#ffd8b0,#f5e0c8)', tag:'t-box', tl:'🎁 Box Premium', name:'Box Bocal + Lettre + Chocolat', ar:'بوكس بوكال + رسالة + شوكولاتة 🍫', desc:'Le cadeau complet ! Bocal + lettre + chocolats. La box coup de cœur 💝', price:6500 },
+  { id:'box-bt', em:'🎁☕', bg:'linear-gradient(135deg,#e8f8e8,#c8f0d8)', tag:'t-box', tl:'🎁 Box Duo', name:'Box Bocal + Thermo Shop', ar:'بوكس بوكال + كوب حراري ☕', desc:'Bocal 365 messages + Tasse thermique personnalisée. Commencer chaque journée avec amour.', price:6500 },
+];
+
+let cart = [];
+let selTheme = '';
+
+function renderProducts() {
+  document.getElementById('pgrid').innerHTML = products.map(p => `
+    <div class="pcard reveal">
+      <div class="pcard-img"><div class="pcard-bg" style="background:${p.bg}"></div><span style="position:relative;z-index:1">${p.em}</span></div>
+      <div class="pcard-body">
+        <span class="ptag ${p.tag}">${p.tl}</span>
+        <h3 class="pname">${p.name}</h3>
+        <p class="pname-ar">${p.ar}</p>
+        <p class="pdesc">${p.desc}</p>
+        <div class="pfoot">
+          <div class="pprice">${p.price.toLocaleString()}<sup> DA</sup></div>
+          <button class="add-btn" id="btn-${p.id}" onclick="addToCart('${p.id}', event)">+ Ajouter</button>
+        </div>
+      </div>
+    </div>`).join('');
+  initReveal();
+}
+
+function addToCart(id, e) {
+  e.stopPropagation();
+  const p = products.find(x => x.id === id);
+  const ex = cart.find(x => x.id === id);
+  if (ex) ex.qty = (ex.qty||1) + 1;
+  else cart.push({...p, qty:1});
+  updateCart();
+  const btn = document.getElementById('btn-'+id);
+  btn.classList.add('added'); btn.textContent = '✓ Ajouté !';
+  setTimeout(() => { btn.classList.remove('added'); btn.textContent = '+ Ajouter'; }, 1500);
+  toggleCart(true);
+}
+
+function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCart(); }
+
+function updateCart() {
+  const count = cart.reduce((s,i) => s+(i.qty||1), 0);
+  const total = cart.reduce((s,i) => s+i.price*(i.qty||1), 0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartTotal').textContent = total.toLocaleString()+' DA';
+  const el = document.getElementById('cartList');
+  if (!cart.length) { el.innerHTML = '<div class="cart-empty"><div class="e-icon">🛍️</div><p>Votre panier est vide</p></div>'; return; }
+  el.innerHTML = cart.map(i => `
+    <div class="citem">
+      <div class="citem-em">${i.em.split(' ')[0]}</div>
+      <div class="citem-info">
+        <div class="citem-name">${i.name}</div>
+        <div class="citem-price">${(i.price*(i.qty||1)).toLocaleString()} DA${i.qty>1?' (×'+i.qty+')':''}</div>
+      </div>
+      <button class="citem-rm" onclick="removeFromCart('${i.id}')">✕</button>
+    </div>`).join('');
+}
+
+function toggleCart(open) {
+  const s = document.getElementById('cartSidebar'), o = document.getElementById('cartOverlay');
+  const isOpen = s.classList.contains('open');
+  if (open === true || !isOpen) { s.classList.add('open'); o.classList.add('open'); }
+  else { s.classList.remove('open'); o.classList.remove('open'); }
+}
+
+function openModal() {
+  if (!cart.length) return;
+  toggleCart(false);
+  const total = cart.reduce((s,i) => s+i.price*(i.qty||1), 0);
+  selTheme = '';
+  document.getElementById('successDiv').style.display = 'none';
+  document.getElementById('mBody').style.display = 'block';
+  document.getElementById('mBody').innerHTML = `
+    <div class="order-sum">
+      <div class="order-sum-ttl">📋 Récapitulatif — ملخص طلبك</div>
+      ${cart.map(i=>`<div class="order-sum-row"><span>${i.name}</span><span>${(i.price*(i.qty||1)).toLocaleString()} DA</span></div>`).join('')}
+      <div class="order-sum-total"><span>Total</span><span>${total.toLocaleString()} DA</span></div>
+    </div>
+    <div class="fg"><label class="flbl">Votre prénom <span class="ar">اسمك</span></label><input class="finput" id="fName" placeholder="Ex: Sara, Ahmed..."/></div>
+    <div class="fg"><label class="flbl">Prénom à écrire sur le bocal <span class="ar">الاسم الذي سيُكتب على البوكال</span></label><input class="finput" id="fGift" placeholder="Ex: Rania, Melissa..."/></div>
+    <div class="frow">
+      <div class="fg"><label class="flbl">Wilaya 🇩🇿</label><input class="finput" id="fWilaya" placeholder="Ex: Alger, Oran..."/></div>
+      <div class="fg"><label class="flbl">Instagram @</label><input class="finput" id="fIG" placeholder="@votre_compte"/></div>
+    </div>
+    <div class="fg">
+      <label class="flbl">Thème / Occasion <span class="ar">الموضوع أو المناسبة</span></label>
+      <div class="theme-sel">
+        <div class="topt" onclick="pickTheme(this,'💜 Amour')"><span class="te">💜</span>Amour</div>
+        <div class="topt" onclick="pickTheme(this,'🌸 Maman')"><span class="te">🌸</span>Maman</div>
+        <div class="topt" onclick="pickTheme(this,'🎂 Anniv')"><span class="te">🎂</span>Anniversaire</div>
+        <div class="topt" onclick="pickTheme(this,'🌙 Distance')"><span class="te">🌙</span>Distance</div>
+        <div class="topt" onclick="pickTheme(this,'🏆 Motivation')"><span class="te">🏆</span>Motivation</div>
+        <div class="topt" onclick="pickTheme(this,'🤲 Doua')"><span class="te">🤲</span>Doua</div>
+      </div>
+    </div>
+    <div class="fg"><label class="flbl">Message personnel (optionnel) <span class="ar">رسالتك الخاصة (اختياري)</span></label><textarea class="ftextarea" id="fMsg" placeholder="Un mot spécial à inclure..."></textarea></div>
+    <button class="sub-btn" onclick="submitOrder()">💌 Envoyer ma commande — أرسل طلبي</button>`;
+  document.getElementById('mOverlay').classList.add('open');
+}
+
+function pickTheme(el, val) {
+  document.querySelectorAll('.topt').forEach(o => o.classList.remove('active'));
+  el.classList.add('active'); selTheme = val;
+}
+
+function closeModal() { document.getElementById('mOverlay').classList.remove('open'); }
+
+function submitOrder() {
+  const name = document.getElementById('fName').value.trim();
+  const gift = document.getElementById('fGift').value.trim();
+  const wilaya = document.getElementById('fWilaya').value.trim();
+  const ig = document.getElementById('fIG').value.trim();
+  const msg = document.getElementById('fMsg').value.trim();
+  if (!name || !wilaya || !ig) { alert('⚠️ Veuillez remplir les champs obligatoires.\nيرجى ملء جميع الحقول المطلوبة.'); return; }
+  const total = cart.reduce((s,i) => s+i.price*(i.qty||1), 0);
+  const items = cart.map(i=>`• ${i.name} — ${(i.price*(i.qty||1)).toLocaleString()} DA`).join('%0A');
+  const dmMsg = `Bonjour Beau قال 👋%0A%0A🎁 Commande:%0A${items}%0A%0A💰 Total: ${total.toLocaleString()} DA%0A👤 Nom: ${name}%0A✍️ Bocal pour: ${gift||name}%0A🎨 Thème: ${selTheme||'À définir'}%0A🏙️ Wilaya: ${wilaya}%0A📸 Instagram: ${ig}${msg?'%0A💬 Message: '+encodeURIComponent(msg):''}`;
+  document.getElementById('mBody').style.display = 'none';
+  document.getElementById('successDiv').style.display = 'block';
+  setTimeout(() => window.open(`https://www.instagram.com/direct/new/?text=${dmMsg}`,'_blank'), 800);
+  cart = []; updateCart();
+}
+
+function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80); });
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+renderProducts();
+</script>
+</body>
+</html>
